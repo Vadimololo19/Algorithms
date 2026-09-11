@@ -126,5 +126,4 @@ fn main() {
     bubble_thread.join().unwrap();
     insertion_thread.join().unwrap();
     hoara_thread.join().unwrap();
-
 }
