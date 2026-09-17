@@ -127,3 +127,5 @@ fn main() {
     insertion_thread.join().unwrap();
     hoara_thread.join().unwrap();
 }
+
+//Комментарий для PR
