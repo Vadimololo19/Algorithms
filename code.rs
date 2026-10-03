@@ -27,13 +27,13 @@ fn bubble_sort(arr: &mut [i32]) -> u64 {
     comparisons
 }
 
-fn insertion_sort(arr: &mut [i32]) -> u64 {
+fn insertion_sort(arr: &mut Vec<i32>) -> u64 {
     let mut comparisons: u64 = 0;
     let n = arr.len();
 
     for i in 1..n {
-        let current = arr[i];
-        let mut j = i as isize - 1;
+        let current = arr.remove(i);
+        let mut j = i;
 
         while j >= 0 {
             comparisons += 1;
@@ -42,11 +42,11 @@ fn insertion_sort(arr: &mut [i32]) -> u64 {
                 break;
             }
 
-            arr[(j + 1) as usize] = arr[j as usize];
+            arr.insert(j+1,j.try_into().unwrap());
             j -= 1;
         }
 
-        arr[(j + 1) as usize] = current;
+        arr.insert(j+1,current);
     }
 
     comparisons
@@ -126,6 +126,5 @@ fn main() {
     bubble_thread.join().unwrap();
     insertion_thread.join().unwrap();
     hoara_thread.join().unwrap();
-}
 
-//Комментарий для PR
+}
